@@ -3,8 +3,11 @@ package com.yhao.floatwindow;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by yhao on 17-11-14.
@@ -126,6 +129,7 @@ class FloatPhone extends FloatView {
         if (isRemove) return;
         mLayoutParams.x = mX = x;
         mLayoutParams.y = mY = y;
+        Log.e(TAG, "updateXY: simon x is " +mLayoutParams.x+"\t" + mLayoutParams.y  );
         mWindowManager.updateViewLayout(mView, mLayoutParams);
     }
 

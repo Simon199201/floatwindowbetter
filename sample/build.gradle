@@ -3,7 +3,14 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
-
+    signingConfigs{
+        e115_release {
+            storeFile file('HQ_E115.keystore')
+            storePassword 'Faw-C229-IVI-797708@faurecia.com'
+            keyAlias = 'alias'
+            keyPassword 'Faw-C229-IVI-797708@faurecia.com'
+        }
+    }
     defaultConfig {
         applicationId "com.example.yhao.fixedfloatwindow"
         minSdkVersion 19
@@ -14,6 +21,12 @@ android {
     }
     buildTypes {
         release {
+            signingConfig signingConfigs.e115_release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.e115_release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
